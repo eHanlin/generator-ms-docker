@@ -1,0 +1,21 @@
+{
+  "name": "generator-ms-docker",
+  "version": "0.0.0",
+  "main": "app/index.js",
+  "description": "",
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "generator-ms-docker",
+    "python",
+    "docker",
+    "flask",
+    "s3"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "yeoman-generator": "^0.20.3"
+  }
+}
