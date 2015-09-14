@@ -32,7 +32,8 @@ PATH.MAPPING_BUILD_ZIP_PATHS = [
   PATH.BUILD_BACKEND_PATH + '/.python-version'
 ];
 
-var VERSION = fs.readFileSync(PATH.SHARE_JSONNET, 'utf8').toString().match(/\"version\" *: *\"(\S+)\"/m)[1].trim();
+var VERSION = fs.readFileSync(PATH.SHARE_JSONNET, 'utf8').toString().match(/\"version\" *: *\"(\S+)\"/m)[1].trim(),
+BUILDED_NAME = VERSION + (ENV != 'production' ? '-SNAPSHOT':'');
 
 var stringSrc = function(filename, string) {
   var src = require('stream').Readable({ objectMode: true })
@@ -84,7 +85,7 @@ gulp.task('copy:backend', ['jsonnet', 'clean'], function(){
 
 gulp.task('build',['copy:backend'], function(){
   return gulp.src(PATH.MAPPING_BUILD_ZIP_PATHS)
-             .pipe(zip(VERSION + '.zip'))
+             .pipe(zip(BUILDED_NAME + '.zip'))
              .pipe(gulp.dest(PATH.BUILD_PATH));
 });
 
@@ -109,7 +110,7 @@ var runPublisher = function( bucket, paths, renameCB ){
 
 
 gulp.task('publish:zip', function(){
-  return runPublisher( ZIP_BUCKET, [PATH.BUILD_PATH + '/' + VERSION + '.zip'], function( path ){
+  return runPublisher( ZIP_BUCKET, [PATH.BUILD_PATH + '/' + BUILDED_NAME + '.zip'], function( path ){
     path.dirname = "<%= appname %>";
   });
 });
