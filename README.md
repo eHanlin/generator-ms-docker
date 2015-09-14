@@ -1,7 +1,7 @@
 generator-ms-docker
 ==============================
 
-This is a docker generator.
+This is a mircro service generator for docker.
 
 ## Support language
 
