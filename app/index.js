@@ -90,6 +90,7 @@ module.exports = generators.Base.extend({
     this.template('gitignore', '.gitignore');
     this.copy('install.sh');
     this.template('run.sh', 'src/run.sh');
+    this.template('README.md');
     this.write('.python-version', '3.4.3');
     this.write(this.PATH.CURRENT_ENV, 'default');
   },
