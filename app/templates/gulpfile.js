@@ -75,7 +75,7 @@ gulp.task('watch', ['jsonnet'], function(){
 gulp.task('copy:backend', ['jsonnet', 'clean'], function(){
   return gulp.src([
     PATH.SOURCE + '/app.py',
-    PATH.PROJECT_SOURCE + '/' + PATH.MIDDLE_MAPPING,
+    PATH.PROJECT_SOURCE + '*/' + PATH.MIDDLE_MAPPING,
     '.python-version',
     'install.sh',
      PATH.SOURCE + '/run.sh' ])
