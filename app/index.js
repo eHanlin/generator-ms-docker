@@ -95,8 +95,6 @@ module.exports = generators.Base.extend({
   },
 
   install:function(){
-    this.on('end', function(){
-      this.installDependencies();
-    });
+    this.npmInstall();
   }
 });
