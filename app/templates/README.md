@@ -10,12 +10,12 @@ gulp env
 
 *test:*
 ```bash
-gulp:test
+gulp env:test
 ```
 
 *production:*
 ```bash
-gulp:production
+gulp env:production
 ```
 
 ## Watch
@@ -33,7 +33,15 @@ gulp
 <% if ( REQUIRE.S3 ) { %>
 ## Publish S3
 
+Publish a backend zip which your project is compressed. And the file will be pushed to aws s3.
+
 ```bash
 gulp publish:zip
+```
+
+Publish static files to aws s3.
+
+```bash
+gulp publish:static
 ```
 <% } %>

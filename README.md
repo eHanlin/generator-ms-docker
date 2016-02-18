@@ -5,7 +5,7 @@ This is a mircro service generator for docker.
 
 ## Support language
 
-* python (flask)
+* [python (flask)](docs/flask.md)
 
 ## docker
 
