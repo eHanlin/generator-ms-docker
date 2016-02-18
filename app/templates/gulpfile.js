@@ -62,7 +62,7 @@ gulp.task('jsonnet', function(){
              .pipe(jsonnet())
              .pipe(jsonInjector({
                 inject:function(json, next, file){
-                  if ( !json.staticUrlPath ) {
+                  if ( ENV != 'default' ) {
                     json.staticS3Host = "https://s3-ap-northeast-1.amazonaws.com";
                     json.staticUrlPath = "/ehanlin-web-resource/<%= appname %>/" + BUILDED_NAME;
                   }
