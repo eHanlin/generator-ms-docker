@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+  <link rel="stylesheet" href="{{"css/index.css"| static_root_path}}" />
+  <script src="{{"js/index.js" | static_root_path}}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1>Environment:{{environment}} {{version}}</h1>
+  {{content}}
+  <img src="{{"resource/personPhoto.jpg"| static_root_path}}" alt="person photo" />
+{% endblock %}
+
