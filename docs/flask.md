@@ -1,7 +1,11 @@
 Generate a flask project
 =========================
 
+This generator can generate default flask files, and it is be able to run to docker container.
 
+In the docker container is running flask project which will expose **4000** port of uwsgi protocol.
+
+And you need to set dispatcher(nginx or apache...) to dispatch uwsgi protocol.
 
 ## Generate the tree of project
 
@@ -101,4 +105,7 @@ Run your project to be opened uwsgi protocol.
 docker run -p 4000:4000 -it peter1209/pyenv-uwsgi-run http://your.source.com/flask_project.zip
 ```
 
+## Docker source
+
+* [peter1209/pyenv-uwsgi-run](https://hub.docker.com/r/peter1209/pyenv-uwsgi-run/)
 
