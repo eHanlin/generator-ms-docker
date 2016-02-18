@@ -95,7 +95,7 @@ Be able to use `gulp` commands：
 
 ## Basic Usage
 
-Offer some basic filters and services which get configs and i18n texts for template.
+Support some basic filters and services which get configs and i18n texts for template.
 
 * templates (use Jinja2)
 * services
