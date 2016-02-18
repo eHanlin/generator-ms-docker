@@ -1,5 +1,6 @@
-generate flask project
+Generate a flask project
 =========================
+
 
 
 ## Generate the tree of project
@@ -66,21 +67,26 @@ You will see the tree if you use `yo ms-docker` to generate flask project.
 Be able to use `gulp` commands：
 
 * env
+
   Change environment to **default** 、 **tes**t or **production**.
   ```
   gulp env:test
   ```
 
 * watch
+
   Watch static and config files for building.
 
 * build
+
   To build static files and compress backend files to zip.
 
 * publish:zip
+
   Publish a backend zip which your project is compressed. And the file will be pushed to aws s3.
 
 * publish:staitc
+
   Publish static files to aws s3.
 
 ## Run project to docker
