@@ -93,6 +93,13 @@ Be able to use `gulp` commands：
 
   Publish static files to aws s3.
 
+## Basic Usage
+
+Offer some basic filters and services which get configs and i18n texts for template.
+
+* templates (use Jinja2)
+* services
+
 ## Run project to docker
 
 Pull the `peter1209/pyenv-uwsgi-run` source.
