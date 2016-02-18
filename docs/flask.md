@@ -1,7 +1,7 @@
 Generate a flask project
 =========================
 
-This generator can generate default flask files, and it is be able to run to docker container.
+This generator can generate default flask and tool files, it is able to run to docker container.
 
 In the docker container is running flask project which will expose **4000** port of uwsgi protocol.
 
