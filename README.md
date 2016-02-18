@@ -9,7 +9,7 @@ This is a mircro service generator for docker.
 
 ## docker
 
-* [peter1209/pyenv-uwsgi-run (python)](https://hub.docker.com/r/peter1209/pyenv-3.4.3-uwsgi-flask-run/)
+* [peter1209/pyenv-uwsgi-run (python)](https://hub.docker.com/r/peter1209/pyenv-uwsgi-run/)
 
 ## Install
 
