@@ -18,5 +18,5 @@ This generator support services：
   i18n_service.get_page_by_request( request )
   ```
 
-The configs follow the current **environment** which is able to switch by the `gulp env` 、 `gulp env:test` or `gulp env:production`.
+The configs follows the current **environment** which is able to switch by the `gulp env` 、 `gulp env:test` or `gulp env:production`.
 
