@@ -97,8 +97,8 @@ Be able to use `gulp` commands：
 
 Support some basic filters and services which get configs and i18n texts for template.
 
-* templates (use Jinja2)
-* services
+* [templates (use Jinja2)](flask-templates.md)
+* [services](flask-services.md)
 
 ## Run project to docker
 
