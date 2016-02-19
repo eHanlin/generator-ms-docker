@@ -2,17 +2,21 @@
   "name": "generator-ms-docker",
   "version": "0.0.2",
   "main": "app/index.js",
-  "description": "This is a mircro service generator for docker",
+  "description": "This is a mircro service generator for docker.",
+  "author": "Sparrow.jang",
+  "license": "MIT",
   "files": [
     "app"
   ],
   "keywords": [
     "yeoman-generator",
     "generator-ms-docker",
+    "generator",
     "python",
     "docker",
     "flask",
-    "s3"
+    "s3",
+    "ec2"
   ],
   "repository" : {
     "type" : "git",
