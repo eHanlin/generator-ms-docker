@@ -18,12 +18,13 @@
     "s3",
     "ec2"
   ],
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/eHanlin/generator-ms-docker"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eHanlin/generator-ms-docker"
   },
-  "dependencies": {
-    "chalk": "^1.1.1",
-    "yeoman-generator": "^0.20.3"
+  "dependencies": {},
+  "devDependencies": {
+    "chalk": "^2.1.0",
+    "yeoman-generator": "^2.0.1"
   }
 }

@@ -1,11 +1,12 @@
-var generators = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 
-module.exports = generators.Base.extend({
+module.exports = class extends Generator {
   // The name `constructor` is important here
-  constructor: function () {
+  constructor(args, opts) {
     // Calling the super constructor is important so our generator is correctly set up
-    generators.Base.apply(this, arguments);
+    //generators.Base.apply(this, arguments);
+    super(args, opts);
 
     this.PATH = ((function(){
       var 
@@ -52,17 +53,25 @@ module.exports = generators.Base.extend({
         WEBAPP:WEBAPP
       };
     }).bind(this))();
-  },
+  }
 
-  packageJSON:function(){
-    this.template('_package.json', 'package.json');
-  },
+  packageJSON(){
+    this.fs.copyTpl(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'),
+      this
+    );
+  }
 
-  gulpfile:function(){
-    this.template('gulpfile.js');
-  },
+  gulpfile(){
+    this.fs.copyTpl(
+      this.templatePath('gulpfile.js'),
+      this.destinationPath('gulpfile.js'),
+      this
+    );
+  }
 
-  prompting: function () {
+  prompting() {
     var done = this.async();
     var whenS3 = function(answers){
       return answers.isS3;
@@ -101,7 +110,7 @@ module.exports = generators.Base.extend({
       default: ''
     }];
  
-    this.prompt(prompts, function (answers) {
+    return this.prompt(prompts).then((answers)=> {
       this.REQUIRE = {
         S3:answers.isS3
       };
@@ -110,30 +119,54 @@ module.exports = generators.Base.extend({
       this.ZIP_BUCKET = answers.bucket;
       this.RESOURCE_BUCKET = answers.resourceBucket;
       done();
-    }.bind(this));
+    });
 
-  },
+  }
 
-  _getFlaskPath: function( file ){
+  _getFlaskPath( file ){
     return 'src/' + this.appname + '/' + file;
-  },
+  }
 
-  app: function(){
-    this.mkdir(this.PATH.PROJECT_SOURCE);
-    this.mkdir(this.PATH.RESOURCE);
-    this.template('config', this.PATH.RESOURCE);
-    this.template('flask/src', this._getFlaskPath( '' ));
-    this.directory('webapp', this.PATH.WEBAPP);
-    this.template('flask/entry_point.py', 'src/app.py');
-    this.template('gitignore', '.gitignore');
-    this.copy('flask/install.sh', 'install.sh');
-    this.template('flask/run.sh', 'src/run.sh');
-    this.template('README.md');
-    this.write('.python-version', '3.4.3');
-    this.write(this.PATH.CURRENT_ENV, 'default');
-  },
+  app(){
+    //this.mkdir(this.PATH.PROJECT_SOURCE);
+    //this.mkdir(this.PATH.RESOURCE);
+    this.fs.copyTpl(
+      this.templatePath('config'),
+      this.destinationPath(this.PATH.RESOURCE),
+      this
+    );
+    this.fs.copyTpl(
+      this.templatePath('flask/src'),
+      this.destinationPath(this._getFlaskPath( '' )),
+      this
+    );
+    this.fs.copy(this.templatePath('webapp'), this.PATH.WEBAPP);
+    this.fs.copyTpl(
+      this.templatePath('flask/entry_point.py'),
+      this.destinationPath('src/app.py'),
+      this
+    );
+    this.fs.copyTpl(
+      this.templatePath('gitignore'),
+      this.destinationPath('.gitignore'),
+      this
+    );
+    this.fs.copy(this.templatePath('flask/install.sh'), 'install.sh');
+    this.fs.copyTpl(
+      this.templatePath('flask/run.sh'),
+      this.destinationPath('src/run.sh'),
+      this
+    );
+    this.fs.copyTpl(
+      this.templatePath('README.md'),
+      this.destinationPath('README.md'),
+      this
+    );
+    this.fs.write('.python-version', '3.4.3');
+    this.fs.write(this.PATH.CURRENT_ENV, 'default');
+  }
 
-  install:function(){
+  install(){
     this.npmInstall();
   }
-});
+};
